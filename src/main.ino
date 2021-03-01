@@ -1,16 +1,16 @@
-//#include <M5Stack.h>
 #include <WiFi.h>
 #include <PubSubClient.h>
 
 #include <OneWire.h>
 #include <DallasTemperature.h>
  
-const char* ssid = "VM513630 ";
-const char* password =  "VXy3z7*ssP9";
-const char* mqttServer = "192.168.1.163";
+const char* ssid = "";
+const char* password =  "";
+const char* mqttServer = "";
+const char* mqttClient = "server_cabinet";
 const int mqttPort = 1883;
-const char* mqttUser = "yourMQTTuser";
-const char* mqttPassword = "yourMQTTpassword";
+const char* mqttUser = "";
+const char* mqttPassword = "";
 
 byte* temperature;
 int temperatureLength;
@@ -54,7 +54,7 @@ void setup() {
   while (!client.connected()) {
     Serial.println("Connecting to MQTT...");
  
-    if (client.connect("ESP32Client")) {
+    if (client.connect(mqttClient)) {
  
       Serial.println("Connected");  
  
